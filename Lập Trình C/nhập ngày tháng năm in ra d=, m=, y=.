@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void clear()
+{
+    while (getchar() != '\n');
+}
+
+void get_dob(int *d, int *m, int *y)
+{
+    int keeptrying = 1, rc;
+    char c;
+    
+    do
+    {
+        printf("Enter DoB: ");
+        rc = scanf("%d/%d/%d%c", d, m, y, &c);
+        if (rc < 4)
+        {
+            printf("Input data is not valid. Plz try again!\n\n");
+            clear();
+        }
+        else if (c != '\n')
+        {
+            printf("Input data is not valid. Plz try again!\n\n");
+            clear();
+        }
+        else if (*d < 0 || *d > 31 || *m < 0 || *m > 12 || *y < 0)
+            printf("Input data is not valid. Plz try again!\n\n");
+        else
+            keeptrying = 0;
+    } while (keeptrying);
+    
+}
+
+#include <stdio.h>
+
+int main()
+{
+    int d, m, y;
+    
+    get_dob(&d, &m, &y);
+    
+    printf("d = %d, m = %d, y = %d", d, m, y);
+
+    return 0;
+}
