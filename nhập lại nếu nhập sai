@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void clear()
+{
+    while (getchar() != '\n');
+}
+
+int get_int(int min, int max)
+{
+    int value, keeptrying = 1, rc;
+    char after;
+    
+    do
+    {
+        printf("Enter an integer in [%d, %d]: ", min, max);
+        rc = scanf("%d%c", &value, &after);
+        if (rc == 0)
+        {
+            printf("No input accepted!\n\n");
+            clear();
+        }
+        else if (after != '\n')
+        {
+            printf("Trailing characters!\n\n");
+            clear();
+        }
+        else if (value < min || value > max)
+            printf("Out of range!\n\n");
+        else
+            keeptrying = 0;
+    } while (keeptrying);
+    
+    return value;
+}
+
+int main()
+{
+    int a;
+	a = get_int(5, 20);
+	printf("a = %d", a);
+
+	return 0;
+}
