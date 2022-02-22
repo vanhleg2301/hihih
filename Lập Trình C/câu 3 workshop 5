@@ -1,3 +1,58 @@
+/*
+Your task here is to implement three array operators described below:
+
+- Append an element to the end of the array
+- Delete an element at the given position
+- Insert an element at the given position
+- Your program need to take as input an array and a sequence of operators and outputs the array after performing the given sequence of operators.
+
+Input Format
+
+- The first line contains an integer n representing the number of given array a.
+- The second line contains  elements of a . if n =0 , the second line will be empty.
+- The third line contains the sequence of operators you need to perform on the given array. This sequence ends with character 'E'. Operator formats are described as below:
+ + A X: append X to the end of the array
+ + D Y: delete X at the Y position
+ + I X Y: insert X at the Y position
+Constraints
+
+- The length of the given array (before performing the sequence of operators) is not greater than 100.
+- Elements in the array are integer less than 5^9.
+- Number of operators is not greater than 50.
+Output Format
+
+Print the array after performing the given sequence of operators, or print "error" if one of the given operators can't be performed.
+
+Sample Input 0
+
+4
+2 2 6 0
+A 6 A 8 D 5 I 0 3 A 4 E
+Sample Output 0
+
+2 2 0 6 0 8 4
+Explanation 0
+
+Below is step by step of performing sequence of operators on the given array:
+
+A 6: 2 2 6 0 6
+A 8: 2 2 6 0 6 8
+D 5: 2 2 6 0 8
+I 0 3: 2 2 0 6 0 8
+A 4: 2 2 0 6 0 8 4
+Sample Input 1
+
+2
+3 5
+D 2 D 1 D 1 E
+Sample Output 1
+
+error
+Explanation 1
+
+After performing two first operators "D 2 D 1", the array is empty. Hence, the last operator "D 1" can be performed! You should print out "error" for this test.
+
+*/
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
